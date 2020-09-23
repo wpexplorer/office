@@ -95,8 +95,8 @@ require_once( get_template_directory() .'/functions/portfolio-details-array.php'
 
 // Shortcodes
 if ( wpex_get_data( 'built_in_shortcodes', '1' ) == '1' ) {
-	require_once( get_template_directory() .'/functions/shortcodes.php');
-	require_once( get_template_directory() .'/mce/shortcode-popup.php');
+	require_once( get_template_directory() . '/functions/shortcodes.php');
+	require_once( get_template_directory() . '/mce/shortcode-popup.php');
 }
 
 // Lets load files/functions only when they are needed

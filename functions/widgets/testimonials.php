@@ -14,7 +14,7 @@ class office_testimonials extends WP_Widget {
 	}
 
 	/** @see WP_Widget::widget */
-	function widget( $args, $instance ) {		
+	public function widget( $args, $instance ) {
 		extract( $args );
 
 		// Sanitize
@@ -22,13 +22,13 @@ class office_testimonials extends WP_Widget {
 		$number  = $instance['number'];
 		$offset  = isset( $instance['offset'] ) ? $instance['offset'] : 0;
 		$excerpt = isset( $instance['excerpt'] ) ? $instance['excerpt'] : true;
-		
+
 		// Before widget hook
 		echo $before_widget;
-		
+
 		// Before title hook
 		echo $before_title;
-		 
+
 		echo $title;
 		echo $after_title;
 
@@ -36,7 +36,7 @@ class office_testimonials extends WP_Widget {
 			$js_dir = get_template_directory_uri() . '/js/';
 			wp_enqueue_script(
 				'flexslider',
-				$js_dir .'flexslider.js',
+				$js_dir . 'flexslider.js',
 				array( 'jquery' ),
 				'2.1',
 				true
@@ -48,7 +48,7 @@ class office_testimonials extends WP_Widget {
 				'1.0',
 				true
 			); ?>
-			
+
 			<div class="widget-recent-testimonials">
 				<div id="testimonials-slider" class="flexslider clearfix">
 					<ul class="slides">
@@ -66,7 +66,7 @@ class office_testimonials extends WP_Widget {
 						<li class="testimonial-slide">
 							<div class="testimonial-content">
 								<?php if ( $excerpt ) { ?>
-									<?php echo wp_trim_words(get_the_content(), 32); ?>
+									<?php echo wp_trim_words( get_the_content(), 32); ?>
 								<a href="<?php the_permalink(); ?>" title="<?php _e('Read More','office'); ?>" class="testimonial-widget-readmore"><?php _e('read more','office'); ?> &rarr;</a>
 								<?php } else { ?>
 									<?php the_content(); ?>
@@ -85,48 +85,50 @@ class office_testimonials extends WP_Widget {
 	}
 
 	/** @see WP_Widget::update */
-	function update($new_instance, $old_instance) {				
-	$instance = $old_instance;
-	$instance['title'] = strip_tags($new_instance['title']);
-	$instance['number'] = strip_tags($new_instance['number']);
-	$instance['offset'] = strip_tags($new_instance['offset']);
-	$instance['excerpt'] = strip_tags($new_instance['excerpt']);
+	public function update($new_instance, $old_instance) {
+		$instance = $old_instance;
+		$instance['title']   = wp_strip_all_tags($new_instance['title']);
+		$instance['number']  = wp_strip_all_tags($new_instance['number']);
+		$instance['offset']  = wp_strip_all_tags($new_instance['offset']);
+		$instance['excerpt'] = wp_strip_all_tags($new_instance['excerpt']);
 		return $instance;
 	}
 
 	/** @see WP_Widget::form */
-	function form( $instance ) {
+	public function form( $instance ) {
 		$instance = wp_parse_args( (array) $instance, array(
 			'title'   => 'Testimonials',
 			'id'      => '',
 			'number'  => 4,
 			'offset'  => '',
 			'excerpt' => '1'
-		) );			
+		) );
 		$title   = isset( $instance['title'] ) ? esc_attr( $instance['title'] ) : '';
 		$number  = isset( $instance['number'] ) ? esc_attr( $instance['number'] ) : '';
 		$offset  = isset( $instance['offset'] ) ? esc_attr( $instance['offset'] ) : '';
 		$excerpt = isset( $instance['excerpt'] ) ? esc_attr( $instance['excerpt'] ) : ''; ?>
 		 <p>
-		  <label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:', 'office'); ?></label> 
-		  <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title','office'); ?>" type="text" value="<?php echo $title; ?>" />
+		  <label for="<?php echo esc_attr( $this->get_field_id('title') ); ?>"><?php _e('Title:', 'office'); ?></label>
+		  <input class="widefat" id="<?php echo esc_attr( $this->get_field_id('title') ); ?>" name="<?php echo esc_attr( $this->get_field_name('title','office') ); ?>" type="text" value="<?php echo esc_html( $title ); ?>" />
 		</p>
 		<p>
-		  <label for="<?php echo $this->get_field_id('number'); ?>"><?php _e('Number to Show:', 'office'); ?></label> 
-		  <input class="widefat" id="<?php echo $this->get_field_id('number'); ?>" name="<?php echo $this->get_field_name('number'); ?>" type="text" value="<?php echo $number; ?>" />
+		  <label for="<?php echo esc_attr( $this->get_field_id('number') ); ?>"><?php _e('Number to Show:', 'office'); ?></label>
+		  <input class="widefat" id="<?php echo esc_attr( $this->get_field_id('number') ); ?>" name="<?php echo esc_attr( $this->get_field_name('number') ); ?>" type="text" value="<?php echo esc_html( $number ); ?>" />
 		</p>
 		<p>
-		  <label for="<?php echo $this->get_field_id('number'); ?>"><?php _e('Offset (the number of posts to skip):', 'office'); ?></label> 
-		  <input class="widefat" id="<?php echo $this->get_field_id('offset'); ?>" name="<?php echo $this->get_field_name('offset'); ?>" type="text" value="<?php echo $offset; ?>" />
+		  <label for="<?php echo $this->get_field_id('number'); ?>"><?php _e('Offset (the number of posts to skip):', 'office'); ?></label>
+		  <input class="widefat" id="<?php echo esc_attr( $this->get_field_id('offset') ); ?>" name="<?php echo esc_attr( $this->get_field_name('offset') ); ?>" type="text" value="<?php echo esc_attr( $offset ); ?>" />
 		</p>
 		<p>
-			<input id="<?php echo $this->get_field_id('excerpt'); ?>" name="<?php echo $this->get_field_name('excerpt'); ?>" type="checkbox" value="1" <?php checked( '1', $excerpt ); ?> />
-			<label for="<?php echo $this->get_field_id('excerpt'); ?>"><?php _e('Check to show only an excerpt','office'); ?></label>
+			<input id="<?php echo $this->get_field_id('excerpt'); ?>" name="<?php echo esc_attr( $this->get_field_name('excerpt') ); ?>" type="checkbox" value="1" <?php checked( '1', $excerpt ); ?> />
+			<label for="<?php echo esc_attr( $this->get_field_id('excerpt') ); ?>"><?php _e('Check to show only an excerpt','office'); ?></label>
 		</p>
 
-		<?php 
+		<?php
 	}
 
-
 }
-add_action( 'widgets_init', create_function( '', 'return register_widget("office_testimonials");' ) ); ?>
+function office_register_testimonials_widget() {
+	register_widget( 'office_testimonials' );
+}
+add_action( 'widgets_init', 'office_register_testimonials_widget' );

@@ -1,12 +1,12 @@
 jQuery(function($){
 	$(document).ready(function(){
-		
-		$("<select />").appendTo("#navigation");
+
+		$('<div class="office-mobile-menu-select"><select></div>').appendTo("#navigation");
 		$("<option />", {
 		   "selected": "selected",
 		   "value" : "",
 		    "text" : responsiveLocalize.text
-		}).appendTo("#navigation select");
+		}).appendTo(".office-mobile-menu-select select");
 
 		$("#navigation a").each(function() {
 			var el = $(this);
@@ -14,28 +14,28 @@ jQuery(function($){
 				$('<option />', {
 				 'value' : el.attr('href'),
 				 'text' : '-- ' + el.text()
-				}).appendTo("#navigation select");
+				}).appendTo(".office-mobile-menu-select select");
 			}
 			else if(el.parents('.sub-menu').length >= 1) {
 				$('<option />', {
 				 'value' : el.attr("href"),
 				 'text' : '- ' + el.text()
-				}).appendTo("#navigation select");
+				}).appendTo(".office-mobile-menu-select select");
 			}
 			else {
 				$('<option />', {
 				 'value' : el.attr('href'),
 				 'text' : el.text()
-				}).appendTo("#navigation select");
+				}).appendTo(".office-mobile-menu-select select");
 			}
 		});
 
-		$("#navigation select").change(function() {
+		$(".office-mobile-menu-select select").change(function() {
 		  window.location = $(this).find("option:selected").val();
 		});
-		
+
 		$(".fitvids").fitVids();
-		$("#navigation select").uniform();
-	
+		$(".office-mobile-menu-select select").uniform();
+
 	});
 });

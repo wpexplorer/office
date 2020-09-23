@@ -13,7 +13,7 @@ class office_recent_portfolio extends WP_Widget {
 
 	}
 
-	function widget($args, $instance) {
+	public function widget($args, $instance) {
 
 			extract( $args );
 
@@ -21,7 +21,7 @@ class office_recent_portfolio extends WP_Widget {
 			$number = apply_filters('widget_title', $instance['number']);
 			$offset = apply_filters('widget_title', $instance['offset']);
 			$category = apply_filters('widget_title', $instance['category']); ?>
-			
+
 			<?php echo $before_widget; ?>
 			<?php if ( $title ) {
 				echo $before_title . $title . $after_title;
@@ -39,7 +39,7 @@ class office_recent_portfolio extends WP_Widget {
 									)
 							);
 				} else { $tax_query = NULL; }
-				
+
 				global $post;
 				$tmp_post = $post;
 				$args = array(
@@ -61,7 +61,7 @@ class office_recent_portfolio extends WP_Widget {
 	}
 
 	/** @see WP_Widget::update */
-	function update($new_instance, $old_instance) {				
+	public function update($new_instance, $old_instance) {
 		$instance = $old_instance;
 		$instance['title'] = strip_tags($new_instance['title']);
 		$instance['number'] = strip_tags($new_instance['number']);
@@ -71,27 +71,27 @@ class office_recent_portfolio extends WP_Widget {
 	}
 
 	/** @see WP_Widget::form */
-	function form($instance) {
-	$instance = wp_parse_args( (array) $instance, array( 'title' => 'Recent Work', 'id' => '', 'number'=> 8, 'offset'=> '', 'category' => 'all-cats'));			
+	public function form($instance) {
+	$instance = wp_parse_args( (array) $instance, array( 'title' => 'Recent Work', 'id' => '', 'number'=> 8, 'offset'=> '', 'category' => 'all-cats'));
 			$title = esc_attr($instance['title']);
 			$number = esc_attr($instance['number']);
 			$offset = esc_attr($instance['offset']);
 			$category = esc_attr($instance['category']); ?>
-			
+
 			 <p>
-				<label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:', 'office'); ?></label> 
+				<label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:', 'office'); ?></label>
 				<input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title','office'); ?>" type="text" value="<?php echo $title; ?>" />
 			</p>
 			<p>
-				<label for="<?php echo $this->get_field_id('number'); ?>"><?php _e('Number to Show:', 'office'); ?></label> 
+				<label for="<?php echo $this->get_field_id('number'); ?>"><?php _e('Number to Show:', 'office'); ?></label>
 				<input class="widefat" id="<?php echo $this->get_field_id('number'); ?>" name="<?php echo $this->get_field_name('number'); ?>" type="text" value="<?php echo $number; ?>" />
 			</p>
 			<p>
-				<label for="<?php echo $this->get_field_id('number'); ?>"><?php _e('Offset (the number of posts to skip):', 'office'); ?></label> 
+				<label for="<?php echo $this->get_field_id('number'); ?>"><?php _e('Offset (the number of posts to skip):', 'office'); ?></label>
 				<input class="widefat" id="<?php echo $this->get_field_id('offset'); ?>" name="<?php echo $this->get_field_name('offset'); ?>" type="text" value="<?php echo $offset; ?>" />
 			</p>
 			<p>
-				<label for="<?php echo $this->get_field_id('category'); ?>"><?php _e('Select a Category:', 'office'); ?></label> 
+				<label for="<?php echo $this->get_field_id('category'); ?>"><?php _e('Select a Category:', 'office'); ?></label>
 				<select class='office-select' name="<?php echo $this->get_field_name('category'); ?>" id="<?php echo $this->get_field_id('category'); ?>">
 				<option value="all-cats" <?php if($category == 'all-cats') { ?>selected="selected"<?php } ?>><?php _e('All', 'office'); ?></option>
 				<?php
@@ -104,8 +104,12 @@ class office_recent_portfolio extends WP_Widget {
 				</select>
 			</p>
 
-			<?php 
+			<?php
 	}
 
 }
-add_action('widgets_init', create_function('', 'return register_widget("office_recent_portfolio");'));	
+
+function office_register_portfolio_widget() {
+	register_widget( 'office_recent_portfolio' );
+}
+add_action( 'widgets_init', 'office_register_portfolio_widget' );
