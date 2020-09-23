@@ -87,7 +87,6 @@ require_once( get_template_directory() .'/functions/custom-login-logo.php' );
 require_once( get_template_directory() .'/functions/google-fonts.php');
 require_once( get_template_directory() .'/functions/woocommerce-tweaks.php');
 require_once( get_template_directory() .'/functions/widgets/widget-areas.php');
-require_once( get_template_directory() .'/functions/widgets/flickr-widget.php');
 require_once( get_template_directory() .'/functions/widgets/testimonials.php');
 require_once( get_template_directory() .'/functions/widgets/recent-portfolio.php');
 require_once( get_template_directory() .'/functions/post-types-taxonomies/post-type-helpers.php' );
