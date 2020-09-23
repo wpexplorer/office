@@ -1,0 +1,36 @@
+.clearfix:after {content: ".";display: block;height: 0;clear: both;visibility: hidden;font-size: 0;}
+* html .clearfix{ zoom: 1; } /* IE6 */
+*:first-child+html .clearfix { zoom: 1; } /* IE7 */
+
+#office-shortcodes-popup{ text-shadow: 1px 1px 1px #fff; }
+
+#shortcode-selector-title{ margin-top: 20px; }
+#select-shortcode{ border: 1px solid #ccc; margin-bottom: 25px; }
+#select-shortcode-inner{ padding: 15px; border: 1px solid #fff; }
+#select-shortcode select{ margin-left: 78px; float: none; width: 400px; font-size: 13px; padding: 5px; }
+
+
+#shortcode-editor { border: 1px solid #ccc; position: relative; }
+#shortcode-editor-inner{ padding: 15px 15px 0; border: 1px solid #fff;  }
+
+.padding-bottom{ padding-bottom: 15px; }
+
+#shortcode-editor h2{ margin-top: 0px; }
+
+#shortcode-editor label { display: block; float: left; margin: 0 8px 0 0; width: 160px; }
+#shortcode-editor select,
+#shortcode-editor input,
+#shortcode-editor textarea { display: block; float: right; width: 340px; padding: 5px; }
+#shortcode-editor input:focus,
+#shortcode-editor textarea:focus {background: #fff;border: 1px solid #bdbdbd !important;color: #444;-webkit-box-shadow: inset 1px 1px 4px rgba(0,0,0,0.1);-moz-box-shadow: inset 1px 1px 4px rgba(0,0,0,0.1); box-shadow: inset 1px 1px 4px rgba(0,0,0,0.1); }
+#shortcode-editor select { width: 112px; }
+#shortcode-editor #insert { text-align: center; position: absolute; bottom: -45px; right: 0px; display: block; margin: 10px 0 0; text-decoration: none; }
+
+#shortcode-editor .form-section{ margin-bottom: 20px; }
+
+
+#office-shortcodes-popup h2{ margin-bottom: 20px; fontsize: 14px; color: #333;}
+#select-shortcode-wrap{ margin-bottom: 20px; }
+.clear{ clear: both; }
+
+hr{ outline: none; border: 0; border-top: 1px solid #ddd; border-bottom: 1px solid #fff; margin: 30px auto; height: 2px;}

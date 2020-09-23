@@ -1,0 +1,88 @@
+/* IE7 fixes?
+================================================== */
+
+a{ cursor: pointer !important; }
+
+/*top bar*/
+#top-bar{ margin: 0 0 -44px; left: 0; top: 0; }
+#top-bar ul li, #top-bar-iner ul a { display: block; float: left; }
+
+/*header*/
+#header.header-style-one{ top: 44px; margin-bottom: 74px; }
+#social li, #social a{ display: block; float: left; }
+#social a img{}
+
+/*navigation*/
+#navigation, .sf-menu{ position: relative; z-index: 99; display: block; width: 100%; height: 50px !important; line-height: 50px; !important }
+
+.sf-menu li:hover { visibility:inherit; }
+.sf-menu ul{ z-index: 99; }
+.sf-navbar li ul {
+	width: 180px; /*IE soils itself without this*/
+}
+.sf-navbar li li li {width: 100%; }
+.sf-menu ul li a, .sf-menu ul ul li a{ border-top: none; border-bottom: 1px solid #222; }
+
+/*headings*/
+#page-heading,
+#portfolio-description,
+#staff-description,
+#services-description,
+#testimonials-description{ padding-bottom: 12px; background: url("../images/heading-bg.png") left bottom repeat-x; }
+#single-portfolio-nav{ background: url("../images/heading-bg.png") left top repeat-x;}
+
+/*homepage*/
+#home-tagline{ margin-bottom: 0px; }
+#home-projects { margin-bottom: 5px; }
+#carousel-pagination { display: none; }
+
+/*page templates*/
+#service-tabs a{ color: #666; background-color: #eee; }
+
+#faqs-cats li, #faqs-cats a{ display: block; float: left; }
+
+#portfolio-wrap{ margin-bottom: 0; }
+#single-portfolio-related{ margin-bottom: -20px; }
+#portfolio-slides-wrap .flex-control-nav{ position: absolute; bottom: -38px; margin: 0; left: 0; }
+
+/*testimonials*/
+.testimonial-author{ background: url("../images/testimonial-arrow.png") center top no-repeat; padding-top: 10px; position: relative; top: -14px; }
+
+/*sidebar*/
+.widget_recent_entries li, .widget_recent_entries li a{ width: 100%; display: block; float: left; margin-left: 0px; padding-left: 0px; }
+.widget-recent-portfolio li{ display: block; float: left; margin-bottom: 5px; }
+
+/*footer*/
+.footer-widget h4{ border-bottom: 1px solid #444; }
+
+/*columns*/
+.two-columns,
+.three-columns,
+.four-columns ,
+.one-two-third,
+.one-three-fourths,
+.one-half,
+.one-third,
+.two-third,
+.one-fourth,
+.three-fourth,
+.one-fifth,
+.one-sixth {
+    margin-right: 2%;
+    float: left;
+}
+
+/*other*/
+.staff-meta{ display: none !important; }
+.sitemap-container li{ border-bottom: 1px solid #eee; }
+.sitemap-container ul li:first-child{ border-top: 1px solid #eee; }
+.gallery-wrap{ margin-bottom: 25px; }
+.button{ border: none; text-decoration: none !important; }
+#search { width: 190px; }
+input[type="clean-button"]:hover,
+.wpcf7-submit:hover,
+#commentSubmit:hover,
+input[type="clean-button"]:active,
+.wpcf7-submit:active,
+#commentSubmit:active,
+input { border: 1px solid #ccc !important; outline: none !important; }
