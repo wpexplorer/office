@@ -4,7 +4,7 @@ Theme URI: http://www.wpexplorer.com
 Description: Premium WordPress theme by <a href="http://www.wpexplorer.com">WPExplorer.com</a>
 Author: WPExplorer
 Author URI: http://themeforest.net/user/WPExplorer
-Version: 2.8.0
+Version: 2.9.0
 License: Custom
 License URI: http://themeforest.net/licenses
 */
@@ -597,16 +597,16 @@ ul.tweets li { margin-bottom: 10px }
 .footer-widget { margin-bottom: 20px }
 #footer #searchbar { margin: 0 }
 /*flickr & recent work*/
-.office-flickr-widget, .widget-recent-portfolio { margin-right: -5px !important }
+.widget-recent-portfolio { margin-right: -5px !important }
 .widget-recent-portfolio li { margin: 0; padding: 0 !important; border: none; list-style: none; }
-.office-flickr-widget a, .widget-recent-portfolio a { float: left; width: 45px; height: 45px; margin-right: 5px; margin-bottom: 5px; border: 5px solid #ddd; -webkit-transition: all 0.2s ease-in-out; -moz-transition: all 0.2s ease-in-out; -o-transition: all 0.2s ease-in-out; -ms-transition: all 0.2s ease-in-out; transition: all 0.2s ease-in-out; }
-.office-flickr-widget a:hover, .widget-recent-portfolio a:hover { border-color: #ff7944 }
-.office-flickr-widget img, .widget-recent-portfolio img { display: block; width: 45px; height: 45px; }
-#footer .office-flickr-widget, #footer .widget-recent-portfolio { margin-right: -8px !important }
-#footer .office-flickr-widget a, #footer .widget-recent-portfolio a { width: 54px; height: 54px; margin-right: 8px; margin-bottom: 8px; }
-#footer .office-flickr-widget a, #footer .widget-recent-portfolio a { border-color: #222 }
-#footer .office-flickr-widget a:hover, #footer .widget-recent-portfolio a:hover { border-color: #ff7944 }
-#footer .office-flickr-widget img, #footer .widget-recent-portfolio img { display: block; width: 54px; height: 54px; }
+.widget-recent-portfolio a { float: left; width: 45px; height: 45px; margin-right: 5px; margin-bottom: 5px; border: 5px solid #ddd; -webkit-transition: all 0.2s ease-in-out; -moz-transition: all 0.2s ease-in-out; -o-transition: all 0.2s ease-in-out; -ms-transition: all 0.2s ease-in-out; transition: all 0.2s ease-in-out; }
+.widget-recent-portfolio a:hover { border-color: #ff7944 }
+.widget-recent-portfolio img { display: block; width: 45px; height: 45px; }
+#footer .widget-recent-portfolio { margin-right: -8px !important }
+#footer .widget-recent-portfolio a { width: 54px; height: 54px; margin-right: 8px; margin-bottom: 8px; }
+#footer .widget-recent-portfolio a { border-color: #222 }
+#footer .widget-recent-portfolio a:hover { border-color: #ff7944 }
+#footer .widget-recent-portfolio img { display: block; width: 54px; height: 54px; }
 /*-----------------------------------------------------------------------------------*
 /* = Footer
 /*-----------------------------------------------------------------------------------*/
